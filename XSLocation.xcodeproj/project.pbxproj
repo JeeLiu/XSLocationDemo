@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0E6462F1B85CD2200C25DCB /* XSLocationEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E6462E1B85CD2200C25DCB /* XSLocationEncrypt.m */; };
+		D0E646321B85CFB700C25DCB /* MapRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E646311B85CFB700C25DCB /* MapRouteViewController.m */; };
 		D0E71E7F1B7C30250065B499 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E71E7E1B7C30250065B499 /* main.m */; };
 		D0E71E821B7C30250065B499 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E71E811B7C30250065B499 /* AppDelegate.m */; };
 		D0E71E851B7C30250065B499 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E71E841B7C30250065B499 /* ViewController.m */; };
@@ -30,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D0E6462D1B85CD2200C25DCB /* XSLocationEncrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSLocationEncrypt.h; sourceTree = "<group>"; };
+		D0E6462E1B85CD2200C25DCB /* XSLocationEncrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSLocationEncrypt.m; sourceTree = "<group>"; };
+		D0E646301B85CFB700C25DCB /* MapRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapRouteViewController.h; sourceTree = "<group>"; };
+		D0E646311B85CFB700C25DCB /* MapRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapRouteViewController.m; sourceTree = "<group>"; };
 		D0E71E791B7C30250065B499 /* XSLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XSLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E71E7D1B7C30250065B499 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0E71E7E1B7C30250065B499 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -138,6 +144,10 @@
 				D0E71EA71B7C49800065B499 /* Annotation.m */,
 				D0E71EA91B7C89F90065B499 /* MapLocationViewController.h */,
 				D0E71EAA1B7C89F90065B499 /* MapLocationViewController.m */,
+				D0E6462D1B85CD2200C25DCB /* XSLocationEncrypt.h */,
+				D0E6462E1B85CD2200C25DCB /* XSLocationEncrypt.m */,
+				D0E646301B85CFB700C25DCB /* MapRouteViewController.h */,
+				D0E646311B85CFB700C25DCB /* MapRouteViewController.m */,
 			);
 			path = XSLocationManager;
 			sourceTree = "<group>";
@@ -242,12 +252,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0E6462F1B85CD2200C25DCB /* XSLocationEncrypt.m in Sources */,
 				D0E71EA81B7C49800065B499 /* Annotation.m in Sources */,
 				D0E71E851B7C30250065B499 /* ViewController.m in Sources */,
 				D0E71EA51B7C3C9D0065B499 /* XSLocationManager.m in Sources */,
 				D0E71E821B7C30250065B499 /* AppDelegate.m in Sources */,
 				D0E71EAB1B7C89F90065B499 /* MapLocationViewController.m in Sources */,
 				D0E71E7F1B7C30250065B499 /* main.m in Sources */,
+				D0E646321B85CFB700C25DCB /* MapRouteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +462,7 @@
 				D0E71E9E1B7C30250065B499 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0E71E9F1B7C30250065B499 /* Build configuration list for PBXNativeTarget "XSLocationTests" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +471,7 @@
 				D0E71EA11B7C30250065B499 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

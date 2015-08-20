@@ -58,11 +58,14 @@
         }
         
         [weakSelf.mapView addAnnotations:annotations];
+        [weakSelf.mapView setSelectedAnnotations:annotations];
         
         Annotation *an = [annotations lastObject];
         CLLocation *loc = [[CLLocation alloc] initWithLatitude:an.coordinate.latitude
                                                      longitude:an.coordinate.longitude];
         [weakSelf mapZoomWithMap:weakSelf.mapView userLocation:loc];
+        
+        
     };
     
     

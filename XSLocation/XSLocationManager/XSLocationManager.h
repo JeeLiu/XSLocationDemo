@@ -114,6 +114,7 @@ typedef void (^XSDistanceCompletionBlock)(NSArray *routes, NSError *error);
 
 - (CLLocation *)getLastSavedLocation;
 
+// 绘制路线
 - (void)routesBetweenTwoPointsWithUserLat:(float)latUser
                                   lngUser:(float)lngUser
                                   latDest:(float)latDest

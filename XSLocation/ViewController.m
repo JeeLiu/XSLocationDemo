@@ -8,9 +8,13 @@
 
 #import "ViewController.h"
 #import "XSLocationManager.h"
+#import "MapRouteViewController.h"
 @interface ViewController () {
     XSLocationManager *locationManager;
+    
 }
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (assign, nonatomic) CLLocationCoordinate2D currentCoordinate;
 
 @end
 
@@ -20,6 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    self.currentCoordinate = kCLLocationCoordinate2DInvalid;
     
     locationManager = [XSLocationManager sharedInstance];
     locationManager.timeoutUpdating = 6;
@@ -28,10 +33,11 @@
     
     
     [self userLocation];
+    
 }
 
 - (void)userLocation {
-    //__weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     
     [locationManager locationQuery];
     
@@ -45,7 +51,11 @@
     
     locationManager.locationEndBlock = ^(CLLocation *location){
         
-        NSLog(@"end %@",[NSString stringWithFormat:@"Lat: %f - Lng: %f", location.coordinate.latitude, location.coordinate.longitude]);
+        weakSelf.label.text = [NSString stringWithFormat:@"Lat: %f - Lng: %f", location.coordinate.latitude, location.coordinate.longitude];
+        
+        NSLog(@"end %@",weakSelf.label.text);
+        weakSelf.currentCoordinate = location.coordinate;
+        
     };
     
     
@@ -65,9 +75,23 @@
     [self performSegueWithIdentifier:@"MapPush" sender:nil];
 }
 
+
+- (IBAction)route:(id)sender {
+    if (CLLocationCoordinate2DIsValid(_currentCoordinate)) {
+        [self performSegueWithIdentifier:@"MapRoute" sender:nil];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"MapRoute"]) {
+        MapRouteViewController *controller = segue.destinationViewController;
+        controller.coordinate2D = _currentCoordinate;
+    }
 }
 
 @end

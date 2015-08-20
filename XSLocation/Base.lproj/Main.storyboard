@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="i11-pJ-IF6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="i11-pJ-IF6">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -34,24 +34,48 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QS-el-zfb">
-                                <rect key="frame" x="277.5" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="255" y="285" width="90" height="30"/>
+                                <state key="normal" title="地理信息定位">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="push:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Yrx-b7-fP1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="309" placeholderIntrinsicHeight="21" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8r-FW-xZo">
+                                <rect key="frame" x="146" y="338" width="309" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdS-Th-sXl">
+                                <rect key="frame" x="277" y="395" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="EJW-G7-wJc"/>
+                                </constraints>
+                                <state key="normal" title="路线">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="route:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hRo-dg-7kO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="TdS-Th-sXl" firstAttribute="centerX" secondItem="K8r-FW-xZo" secondAttribute="centerX" id="6pB-u7-6M5"/>
+                            <constraint firstItem="K8r-FW-xZo" firstAttribute="top" secondItem="5QS-el-zfb" secondAttribute="bottom" constant="23" id="9OJ-7Q-VZk"/>
+                            <constraint firstAttribute="centerX" secondItem="K8r-FW-xZo" secondAttribute="centerX" id="FYT-Q5-Pbu"/>
+                            <constraint firstItem="TdS-Th-sXl" firstAttribute="top" secondItem="K8r-FW-xZo" secondAttribute="bottom" constant="36" id="RWE-It-leV"/>
                             <constraint firstAttribute="centerY" secondItem="5QS-el-zfb" secondAttribute="centerY" id="YKn-Ld-UvF"/>
                             <constraint firstAttribute="centerX" secondItem="5QS-el-zfb" secondAttribute="centerX" id="i8U-jd-3DR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cYR-RR-fuy"/>
                     <connections>
+                        <outlet property="label" destination="K8r-FW-xZo" id="WAf-L7-dVI"/>
                         <segue destination="ik8-3f-KIf" kind="show" identifier="MapPush" id="gVf-k8-ZVR"/>
+                        <segue destination="73p-gH-jIG" kind="show" identifier="MapRoute" id="zlt-eP-Lx0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -92,7 +116,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WgW-ef-HWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1536" y="871"/>
+            <point key="canvasLocation" x="-2044" y="815"/>
+        </scene>
+        <!--路线-->
+        <scene sceneID="Yar-T8-mj1">
+            <objects>
+                <viewController id="73p-gH-jIG" customClass="MapRouteViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="myu-v0-r5A"/>
+                        <viewControllerLayoutGuide type="bottom" id="CoH-UI-kaB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rkh-Hf-YeM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IXU-g9-McT">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="73p-gH-jIG" id="9QX-ag-9zi"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IXU-g9-McT" firstAttribute="top" secondItem="rkh-Hf-YeM" secondAttribute="top" id="KhI-p2-H8L"/>
+                            <constraint firstAttribute="trailing" secondItem="IXU-g9-McT" secondAttribute="trailing" id="LkC-0v-zBd"/>
+                            <constraint firstItem="IXU-g9-McT" firstAttribute="leading" secondItem="rkh-Hf-YeM" secondAttribute="leading" id="TKr-2z-db3"/>
+                            <constraint firstItem="CoH-UI-kaB" firstAttribute="top" secondItem="IXU-g9-McT" secondAttribute="bottom" id="q01-PX-VpJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="路线" id="zWT-24-IL4"/>
+                    <connections>
+                        <outlet property="mapView" destination="IXU-g9-McT" id="Vai-cK-mRP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mrk-7p-oov" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1345" y="809"/>
         </scene>
     </scenes>
 </document>

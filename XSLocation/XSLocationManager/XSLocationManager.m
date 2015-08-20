@@ -444,13 +444,10 @@ typedef NS_ENUM(NSUInteger, XSLastQuery) {
     
     [direction calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
         
-        //        MKRoute * rou = [[response routes]objectAtIndex:0];
-        //        NSLog(@"%@",[self stringFromInterval:rou.expectedTravelTime]);
+        onCompletion([response routes], error);
         
-        onCompletion([response routes], nil);
     }];
 }
-
 
 // Transform NSTimeInterval to 00:00:00
 - (NSString *)stringFromInterval:(NSTimeInterval)timeInterval {
